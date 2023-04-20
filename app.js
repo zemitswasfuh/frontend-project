@@ -9,11 +9,13 @@
                 //append to the DIV
 //upload this junk to host on SURGE
 
-const picEl = document.querySelector('.pic')
-const factEl = document.querySelector('.fact')
+const picEl = document.querySelector('.pic');
+const factEl = document.querySelector('.fact');
 const button = document.querySelector('.button');
+const audio = new Audio('bark.wav')
 //button and listener
 button.addEventListener('click', function () {
+    audio.play();
     //pic GET request
     $.get(`https://dog.ceo/api/breeds/image/random`, (data) => {
         picEl.innerHTML = '';
@@ -25,6 +27,6 @@ button.addEventListener('click', function () {
     //fact GET request
     $.get(`https://dog-api.kinduff.com/api/facts?raw=true`, (data) => {
         factEl.innerHTML = '';
-        factEl.innerText = data
+        factEl.innerText = 'Fact: ' + data;
     })//end of fact GET request
 });//end of listener
